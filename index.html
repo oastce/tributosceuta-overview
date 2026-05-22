@@ -165,30 +165,48 @@
         }
 
         #slide-9 {
-            background-image: var(--grad-bg), url('images/9-10.jpg');
+            background-image: var(--grad-bg), url('images/7-8.jpg');
             background-size: cover;
             background-position: center;
         }
 
         #slide-10 {
-            background-image: var(--grad-bg), url('images/9-10.jpg');
+            background-image: var(--grad-bg), url('images/7-8.jpg');
             background-size: cover;
             background-position: center;
         }
 
         #slide-11 {
-            background-image: var(--grad-bg), url('images/11.jpg');
+            background-image: var(--grad-bg), url('images/7-8.jpg');
             background-size: cover;
             background-position: center;
         }
 
         #slide-12 {
-            background-image: var(--grad-bg), url('images/12.webp');
+            background-image: var(--grad-bg), url('images/9-10.jpg');
             background-size: cover;
             background-position: center;
         }
 
         #slide-13 {
+            background-image: var(--grad-bg), url('images/9-10.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+
+        #slide-14 {
+            background-image: var(--grad-bg), url('images/11.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+
+        #slide-15 {
+            background-image: var(--grad-bg), url('images/12.webp');
+            background-size: cover;
+            background-position: center;
+        }
+
+        #slide-16 {
             background-image: var(--grad-bg), url('images/13.jpg');
             background-size: cover;
             background-position: center bottom;
@@ -434,7 +452,7 @@
            ========================================== */
         .slide-content {
             width: 100%;
-            max-width: 1200px;
+            max-width: 1350px;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -1494,6 +1512,37 @@
             gap: 2.5rem;
         }
 
+        /* Slide-specific custom grid structures to handle long texts and prevent empty card spaces */
+        #slide-8 .features-grid {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+        }
+
+        #slide-8 .card-header-row {
+            display: flex;
+            align-items: center;
+            gap: 1.2rem;
+            margin-bottom: 1.5rem;
+            width: 100%;
+        }
+
+        #slide-8 .card-header-row .card-icon-wrapper {
+            margin-bottom: 0;
+            flex-shrink: 0;
+        }
+
+        #slide-8 .card-header-row h3 {
+            margin-bottom: 0;
+        }
+
+        #slide-10 .talent-split {
+            grid-template-columns: 1.3fr 1fr;
+        }
+
+        #slide-11 .talent-split {
+            grid-template-columns: 1fr 1.3fr;
+        }
+
         .salary-comparison-card h3,
         .local-taxes-card h3 {
             font-size: 1.3rem;
@@ -2072,6 +2121,11 @@
                 gap: 1.5rem;
             }
 
+            #slide-10 .talent-split,
+            #slide-11 .talent-split {
+                grid-template-columns: 1fr !important;
+            }
+
             .is-deep-dive {
                 grid-template-columns: 1fr;
                 gap: 1rem;
@@ -2110,6 +2164,7 @@
                 border-left: none;
                 border-top: 1px solid rgba(255, 255, 255, 0.05);
             }
+
         }
 
         @media (max-width: 768px) {
@@ -2183,13 +2238,13 @@
             .route-visualization {
                 flex-direction: column !important;
                 gap: 1.5rem !important;
-                padding: 2rem 1.5rem !important;
+                padding: 2.5rem 1rem !important;
                 align-items: center !important;
             }
 
             .route-line {
                 width: 2px !important;
-                height: 50px !important;
+                height: 80px !important;
                 flex-grow: 0 !important;
                 margin: 0.5rem 0 !important;
                 background: rgba(255, 255, 255, 0.1) !important;
@@ -2205,9 +2260,22 @@
 
             .line-label {
                 top: 50% !important;
-                left: 20px !important;
-                transform: translateY(-50%) !important;
-                white-space: nowrap !important;
+                left: 50% !important;
+                transform: translate(-50%, -50%) !important;
+                white-space: normal !important;
+                width: calc(100vw - 80px) !important;
+                max-width: 280px !important;
+                text-align: center !important;
+                font-size: 0.72rem !important;
+                line-height: 1.3 !important;
+                padding: 0.4rem 0.8rem !important;
+                display: inline-flex !important;
+                justify-content: center !important;
+                align-items: center !important;
+                flex-wrap: wrap !important;
+                background: rgba(15, 23, 42, 0.9) !important;
+                border-radius: 12px !important;
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5) !important;
             }
 
             .quote-text {
@@ -2246,6 +2314,11 @@
             .tax-calculator {
                 padding: 1.2rem;
             }
+
+            /* Responsive overrides for Slide 8 content-based layout */
+            #slide-8 .features-grid {
+                grid-template-columns: 1fr;
+            }
         }
 
         @media (max-width: 480px) {
@@ -2279,29 +2352,22 @@
     <!-- Sidebar Navigation Dots (Visible in presentation mode) -->
     <aside class="sidebar-dots" id="sidebar-navigation">
         <ul class="dots-list">
-            <li><a href="#slide-1" class="dot-link active" data-index="0"><span class="dot-tooltip">Inicio</span></a>
-            </li>
-            <li><a href="#slide-2" class="dot-link" data-index="1"><span class="dot-tooltip">¿Por qué Ceuta?</span></a>
-            </li>
-            <li><a href="#slide-3" class="dot-link" data-index="2"><span class="dot-tooltip">Calidad de Vida</span></a>
-            </li>
-            <li><a href="#slide-4" class="dot-link" data-index="3"><span class="dot-tooltip">Conectividad</span></a>
-            </li>
-            <li><a href="#slide-5" class="dot-link" data-index="4"><span class="dot-tooltip">Ventajas
-                        Fiscales</span></a></li>
-            <li><a href="#slide-6" class="dot-link" data-index="5"><span class="dot-tooltip">Impuesto
-                        Sociedades</span></a></li>
+            <li><a href="#slide-1" class="dot-link active" data-index="0"><span class="dot-tooltip">Inicio</span></a></li>
+            <li><a href="#slide-2" class="dot-link" data-index="1"><span class="dot-tooltip">¿Por qué Ceuta?</span></a></li>
+            <li><a href="#slide-3" class="dot-link" data-index="2"><span class="dot-tooltip">Calidad de Vida</span></a></li>
+            <li><a href="#slide-4" class="dot-link" data-index="3"><span class="dot-tooltip">Conectividad</span></a></li>
+            <li><a href="#slide-5" class="dot-link" data-index="4"><span class="dot-tooltip">Ventajas Fiscales</span></a></li>
+            <li><a href="#slide-6" class="dot-link" data-index="5"><span class="dot-tooltip">Impuesto Sociedades</span></a></li>
             <li><a href="#slide-7" class="dot-link" data-index="6"><span class="dot-tooltip">IPSI vs IVA</span></a></li>
-            <li><a href="#slide-8" class="dot-link" data-index="7"><span class="dot-tooltip">Residentes y
-                        Talento</span></a></li>
-            <li><a href="#slide-9" class="dot-link" data-index="8"><span class="dot-tooltip">Ecosistema Tech</span></a>
-            </li>
-            <li><a href="#slide-10" class="dot-link" data-index="9"><span class="dot-tooltip">Sectores Clave</span></a>
-            </li>
-            <li><a href="#slide-11" class="dot-link" data-index="10"><span class="dot-tooltip">PROCESA</span></a></li>
-            <li><a href="#slide-12" class="dot-link" data-index="11"><span class="dot-tooltip">Conclusión</span></a>
-            </li>
-            <li><a href="#slide-13" class="dot-link" data-index="12"><span class="dot-tooltip">Contacto</span></a></li>
+            <li><a href="#slide-8" class="dot-link" data-index="7"><span class="dot-tooltip">IPSI Reducido</span></a></li>
+            <li><a href="#slide-9" class="dot-link" data-index="8"><span class="dot-tooltip">Localización IPSI</span></a></li>
+            <li><a href="#slide-10" class="dot-link" data-index="9"><span class="dot-tooltip">Ejemplos IPSI</span></a></li>
+            <li><a href="#slide-11" class="dot-link" data-index="10"><span class="dot-tooltip">Residentes y Talento</span></a></li>
+            <li><a href="#slide-12" class="dot-link" data-index="11"><span class="dot-tooltip">Ecosistema Tech</span></a></li>
+            <li><a href="#slide-13" class="dot-link" data-index="12"><span class="dot-tooltip">Sectores Clave</span></a></li>
+            <li><a href="#slide-14" class="dot-link" data-index="13"><span class="dot-tooltip">PROCESA</span></a></li>
+            <li><a href="#slide-15" class="dot-link" data-index="14"><span class="dot-tooltip">Conclusión</span></a></li>
+            <li><a href="#slide-16" class="dot-link" data-index="15"><span class="dot-tooltip">Contacto</span></a></li>
         </ul>
     </aside>
 
@@ -2317,8 +2383,7 @@
                     <h2 class="hero-subtitle">El nuevo hub tecnológico, puerta de acceso a Europa y África</h2>
                     <p class="hero-description">
                         Ejemplo de convivencia, calidad de vida y talento que conforman un ecosistema ideal para la
-                        creación
-                        de empresas tecnológicas con un régimen fiscal único en el continente.
+                        creación de empresas tecnológicas con un régimen fiscal único en el continente.
                     </p>
                 </div>
             </div>
@@ -2328,8 +2393,7 @@
         <section class="slide" id="slide-2" data-slide-title="¿Por qué Ceuta?">
             <div class="slide-content">
                 <h2 class="section-title">¿Por qué Ceuta?</h2>
-                <p class="section-subtitle">Un enclave estratégico europeo con plenas garantías jurídicas y
-                    oportunidades ilimitadas.</p>
+                <p class="section-subtitle">Un enclave estratégico europeo con plenas garantías jurídicas y oportunidades ilimitadas.</p>
 
                 <div class="features-grid">
                     <div class="feature-card animate-card">
@@ -2337,32 +2401,28 @@
                             <i data-lucide="shield-check"></i>
                         </div>
                         <h3>Integrada en la UE</h3>
-                        <p>Plena integración en la Unión Europea. Tu inversión goza de los mismos estándares y
-                            directrices del mercado común.</p>
+                        <p>Plena integración en la Unión Europea. Tu inversión goza de los mismos estándares y directrices que gozaría en cualquier otro lugar de la UE.</p>
                     </div>
                     <div class="feature-card animate-card">
                         <div class="card-icon-wrapper">
                             <i data-lucide="scale"></i>
                         </div>
                         <h3>Seguridad Jurídica</h3>
-                        <p>Sujeta al marco constitucional y legal de España. Máxima seguridad y certidumbre regulatoria
-                            para operar sin riesgos.</p>
+                        <p>Sujeta al marco constitucional y legal de España. Máxima seguridad y Certidumbre regulatoria para operar sin riesgos.</p>
                     </div>
                     <div class="feature-card animate-card">
                         <div class="card-icon-wrapper">
                             <i data-lucide="map-pin"></i>
                         </div>
                         <h3>Ubicación Estratégica</h3>
-                        <p>Situada en el Estrecho de Gibraltar. Nexo geográfico ideal y punto de conexión directo entre
-                            los continentes europeo y africano.</p>
+                        <p>Situada en el Estrecho de Gibraltar, es el nexo geográfico ideal y punto de conexión directo entre los continentes europeo y africano.</p>
                     </div>
                     <div class="feature-card animate-card">
                         <div class="card-icon-wrapper">
                             <i data-lucide="trending-up"></i>
                         </div>
                         <h3>Ecosistema Emergente</h3>
-                        <p>Rápida consolidación de empresas tecnológicas, startups y servicios digitales en un polo de
-                            innovación consolidado.</p>
+                        <p>Rápida consolidación de empresas tecnológicas, startups y servicios digitales en un polo de innovación consolidado.</p>
                     </div>
                 </div>
             </div>
@@ -2372,8 +2432,7 @@
         <section class="slide" id="slide-3" data-slide-title="Calidad de Vida">
             <div class="slide-content">
                 <h2 class="section-title">Calidad de Vida</h2>
-                <p class="section-subtitle">El equilibrio perfecto entre el éxito profesional y el bienestar personal.
-                </p>
+                <p class="section-subtitle">El equilibrio perfecto entre el éxito profesional y el bienestar personal.</p>
 
                 <div class="split-layout">
                     <div class="split-text-block bg-glass-card">
@@ -2382,32 +2441,28 @@
                                 <div class="info-icon"><i data-lucide="sun"></i></div>
                                 <div>
                                     <h4>Clima Mediterráneo</h4>
-                                    <p>Más de 300 días de sol al año y temperaturas medias suaves que permiten disfrutar
-                                        de la ciudad de forma continua.</p>
+                                    <p>Más de 300 días de sol al año y temperaturas medias suaves que permiten disfrutar de la ciudad de forma continua.</p>
                                 </div>
                             </div>
                             <div class="info-item">
                                 <div class="info-icon"><i data-lucide="anchor"></i></div>
                                 <div>
                                     <h4>Mar y Naturaleza</h4>
-                                    <p>Playas espectaculares, senderos naturales en el monte Hacho y el entorno de
-                                        García Aldave. Paraíso para el buceo y deportes náuticos.</p>
+                                    <p>Playas espectaculares, senderos naturales en el monte Hacho y el entorno de García Aldave. Con un puerto deportivo que la convierte en un paraíso para el buceo y deportes náuticos.</p>
                                 </div>
                             </div>
                             <div class="info-item">
                                 <div class="info-icon"><i data-lucide="navigation"></i></div>
                                 <div>
                                     <h4>Ciudad Accesible</h4>
-                                    <p>Una ciudad sin distancias. Todo a 15 minutos. Olvídate de los atascos diarios y
-                                        maximiza tu tiempo libre.</p>
+                                    <p>Una ciudad sin distancias. Todo a 15 minutos a pie. Olvídate del coche y los atascos diarios y maximiza tu tiempo libre.</p>
                                 </div>
                             </div>
                             <div class="info-item">
                                 <div class="info-icon"><i data-lucide="languages"></i></div>
                                 <div>
                                     <h4>Entorno Multicultural</h4>
-                                    <p>Una fusión armoniosa de cuatro culturas (cristiana, musulmana, hebrea e hindú)
-                                        que enriquece la gastronomía, las festividades y la sociedad.</p>
+                                    <p>Una fusión armoniosa de cuatro culturas (cristiana, musulmana, hebrea e hindú) que enriquece la gastronomía, las festividades y la sociedad que convierten a Ceuta en una muestra del significado de la palabra CONVIVENCIA.</p>
                                 </div>
                             </div>
                         </div>
@@ -2415,8 +2470,7 @@
                     <div class="split-visual-block bg-glass-card image-highlights">
                         <div class="visual-badge">Una experiencia de vida única</div>
                         <div class="stats-quote">
-                            <span class="quote-text">"Ceuta ofrece el entorno idóneo para retener al mejor talento
-                                tecnológico: un estilo de vida inigualable junto al mar."</span>
+                            <span class="quote-text">"Ceuta ofrece el entorno idóneo para retener al mejor talento tecnológico: un estilo de vida inigualable junto al mar."</span>
                         </div>
                     </div>
                 </div>
@@ -2427,33 +2481,28 @@
         <section class="slide" id="slide-4" data-slide-title="Conectividad">
             <div class="slide-content">
                 <h2 class="section-title">Conectividad de Primer Nivel</h2>
-                <p class="section-subtitle">Conexiones rápidas y continuas con la península ibérica y el resto de
-                    Europa.</p>
+                <p class="section-subtitle">Conexiones rápidas y continuas con la península ibérica y el resto de Europa.</p>
 
                 <div class="connectivity-grid">
                     <div class="connectivity-card bg-glass-card text-center">
                         <div class="icon-circle"><i data-lucide="ship"></i></div>
                         <h3>Ferry Algeciras - Ceuta</h3>
                         <div class="time-stat">1 Hora</div>
-                        <p class="card-desc">Múltiples rotaciones diarias a través de modernas embarcaciones de alta
-                            velocidad. Salidas prácticamente cada hora para pasajeros y vehículos.</p>
+                        <p class="card-desc">Múltiples rotaciones diarias a través de modernas embarcaciones de alta velocidad. Salidas prácticamente cada hora para pasajeros y vehículos.</p>
                     </div>
 
                     <div class="connectivity-card bg-glass-card text-center">
                         <div class="icon-circle"><i data-lucide="helicopter"></i></div>
                         <h3>Helicóptero Directo</h3>
                         <div class="time-stat">30 / 7 Mins</div>
-                        <p class="card-desc">Conexiones directas en helicóptero de pasajeros: solo <strong>30
-                                minutos</strong> hasta el Aeropuerto Internacional de Málaga (AGP) y <strong>7
-                                minutos</strong> hasta Algeciras.</p>
+                        <p class="card-desc">Conexiones directas en helicóptero de pasajeros: solo 30 minutos hasta el Aeropuerto Internacional de Málaga (AGP) y 7 minutos hasta Algeciras.</p>
                     </div>
 
                     <div class="connectivity-card bg-glass-card text-center">
                         <div class="icon-circle"><i data-lucide="plane"></i></div>
                         <h3>Málaga AGP Hub</h3>
                         <div class="time-stat">Acceso Global</div>
-                        <p class="card-desc">A través de las conexiones diarias de helicóptero a Málaga, se accede en
-                            tiempo récord a vuelos directos con más de 140 destinos internacionales.</p>
+                        <p class="card-desc">A través de las conexiones diarias de helicóptero a Málaga, se accede en tiempo récord a vuelos directos con más de 140 destinos internacionales.</p>
                     </div>
                 </div>
 
@@ -2470,7 +2519,7 @@
                         <span class="node-label">Ceuta</span>
                     </div>
                     <div class="route-line ferry-line">
-                        <span class="line-label"><i data-lucide="ship"></i> 1 hora</span>
+                        <span class="line-label"><i data-lucide="ship"></i> 1 hora ó <i data-lucide="helicopter"></i> 7 mins a Algeciras</span>
                     </div>
                     <div class="route-node">
                         <span class="node-dot"></span>
@@ -2484,8 +2533,7 @@
         <section class="slide" id="slide-5" data-slide-title="Ventajas Fiscales">
             <div class="slide-content">
                 <h2 class="section-title">Ventajas Fiscales Clave</h2>
-                <p class="section-subtitle">El territorio fiscalmente más competitivo de Europa, diseñado para
-                    incentivar la inversión productiva.</p>
+                <p class="section-subtitle">El territorio fiscalmente más competitivo de Europa, diseñado para incentivar la inversión productiva.</p>
 
                 <div class="fiscal-overview-grid">
                     <div class="fiscal-metric-card bg-glass-card highlight-glow">
@@ -2493,10 +2541,7 @@
                             <span class="metric-value">50%</span>
                             <span class="metric-title">Impuesto sobre Sociedades</span>
                         </div>
-                        <p class="metric-desc">Bonificación directa del 50% de la cuota. Reduce el tipo general del 25%
-                            a un tipo impositivo efectivo de solo el <strong>12.5%</strong> (o incluso
-                            <strong>7.5%</strong> para nuevas empresas).
-                        </p>
+                        <p class="metric-desc">Bonificación directa del 50% de la cuota. Reduce el tipo general del 25% a un tipo impositivo efectivo de solo el 12.5% (o incluso 7.5% para nuevas empresas).</p>
                     </div>
 
                     <div class="fiscal-metric-card bg-glass-card highlight-glow">
@@ -2504,8 +2549,7 @@
                             <span class="metric-value">60%</span>
                             <span class="metric-title">Deducción en IRPF</span>
                         </div>
-                        <p class="metric-desc">Deducción del 60% en la cuota del IRPF para rentas obtenidas en Ceuta por
-                            residentes. Supone un ahorro enorme que incrementa directamente el salario neto.</p>
+                        <p class="metric-desc">Deducción del 60% en la cuota del IRPF para rentas obtenidas en Ceuta por residentes. Supone un ahorro enorme que incrementa directamente el salario neto.</p>
                     </div>
 
                     <div class="fiscal-metric-card bg-glass-card highlight-glow">
@@ -2513,8 +2557,7 @@
                             <span class="metric-value">50%</span>
                             <span class="metric-title">Bonificación Seg. Social</span>
                         </div>
-                        <p class="metric-desc">Bonificación del 50% en las aportaciones empresariales a la Seguridad
-                            Social para trabajadores por cuenta ajena contratados en centros de Ceuta.</p>
+                        <p class="metric-desc">Bonificación del 50% en las aportaciones empresariales a la Seguridad Social para trabajadores por cuenta ajena contratados en centros de Ceuta, así como en las cuotas de autónomos.</p>
                     </div>
 
                     <div class="fiscal-metric-card bg-glass-card">
@@ -2522,8 +2565,7 @@
                             <span class="metric-value">75%</span>
                             <span class="metric-title">Impuesto Patrimonio</span>
                         </div>
-                        <p class="metric-desc">Bonificación del 75% sobre los bienes situados o derechos que deban
-                            ejercitarse en Ceuta, protegiendo el patrimonio empresarial y personal.</p>
+                        <p class="metric-desc">Bonificación del 75% sobre los bienes situados o derechos que deban ejercitarse en Ceuta, protegiendo el patrimonio empresarial y personal.</p>
                     </div>
 
                     <div class="fiscal-metric-card bg-glass-card">
@@ -2531,8 +2573,7 @@
                             <span class="metric-value">50%</span>
                             <span class="metric-title">Sucesiones y Donaciones</span>
                         </div>
-                        <p class="metric-desc">Bonificación del 50% en las transmisiones mortis causa e inter vivos para
-                            facilitar el relevo generacional y la reinversión familiar.</p>
+                        <p class="metric-desc">Bonificación del 50% en las transmisiones mortis causa e inter vivos para facilitar el relevo generacional y la reinversión familiar.</p>
                     </div>
                 </div>
             </div>
@@ -2542,56 +2583,43 @@
         <section class="slide" id="slide-6" data-slide-title="Impuesto Sociedades">
             <div class="slide-content">
                 <h2 class="section-title">Impuesto sobre Sociedades (IS)</h2>
-                <p class="section-subtitle">Normativa y seguridad jurídica que amparan la bonificación fiscal de tus
-                    beneficios.</p>
+                <p class="section-subtitle">Normativa y seguridad jurídica que amparan la bonificación fiscal de tus beneficios.</p>
 
                 <div class="is-deep-dive">
                     <div class="is-card bg-glass-card">
                         <div class="card-badge"><i data-lucide="check-circle-2"></i> Art. 33 de la Ley de IS</div>
                         <h3>Requisitos de la Bonificación</h3>
-                        <p>Para acogerse a la bonificación del 50% en la cuota del Impuesto sobre Sociedades:</p>
-                        <ul class="styled-list">
-                            <li>La entidad debe estar domiciliada fiscalmente en Ceuta o disponer de un establecimiento
-                                permanente en la ciudad.</li>
-                            <li>Las operaciones y servicios deben ser gestionados de forma efectiva y directa desde
-                                Ceuta.</li>
-                            <li>Tener medios materiales y humanos mínimos asignados a la actividad local.</li>
-                        </ul>
+                        <p>Bonificación del 50 por ciento, la parte de cuota íntegra que corresponda a las rentas obtenidas en Ceuta por entidades que operen efectiva y materialmente en dichos territorios.</p>
+                        <p style="font-size: 0.9rem; color: var(--text-secondary); margin-top: 0.5rem; line-height: 1.4;">
+                            La entidad debe estar domiciliada fiscalmente en Ceuta o disponer de un establecimiento permanente en la Ciudad, debiendo completar el cierre de un ciclo mercantil con resultados económicos. Deberán operar efectiva y materialmente en Ceuta, y sus operaciones se gestionarán de forma real, efectiva y directa desde la Ciudad, contando con los medios materiales y humanos mínimos que posibiliten su desarrollo.
+                        </p>
                     </div>
 
                     <div class="is-card bg-glass-card">
                         <div class="card-badge"><i data-lucide="help-circle"></i> Clave Mercantil</div>
-                        <h3>Cierre del Ciclo Mercantil</h3>
-                        <p>¿Qué ocurre si parte del negocio se realiza fuera?</p>
-                        <p>La jurisprudencia y normativa permiten de forma expresa <strong>excepciones al cierre del
-                                ciclo mercantil en Ceuta</strong>. Esto significa que actividades como compras,
-                            marketing o contratación nacional no invalidan la bonificación, siempre que el valor añadido
-                            y la toma de decisiones resida en la ciudad.</p>
+                        <h3>Excepción al Cierre de Ciclo</h3>
+                        <p>Siempre que se cumpla el resto de requisitos, si la empresa cuenta con hasta 8 trabajadores en Ceuta, podrá disfrutar de la bonificación sin tener en cuenta el cierre del ciclo mercantil, hasta un máximo de 400.000 € de las rentas obtenidas en la Ciudad. Si las rentas superan esa cantidad, se tendrá que acreditar el cierre del ciclo mercantil.</p>
                     </div>
 
                     <div class="is-card bg-glass-card">
                         <div class="card-badge"><i data-lucide="plus-circle"></i> Alcance Nacional</div>
-                        <h3>Incremento de Bonificación</h3>
-                        <p>Las rentas obtenidas fuera de Ceuta por actividades directamente dependientes de la sede
-                            central en Ceuta y que cumplan los requisitos legales pueden, en determinados supuestos,
-                            aplicar la bonificación, facilitando la expansión nacional de la empresa.</p>
+                        <h3>A partir del 4º año</h3>
+                        <p>A partir del 4º año, podrán aplicar la bonificación aplicable a Ceuta prevista en este artículo por las rentas obtenidas fuera de Ceuta cuando, al menos, la mitad de sus activos estén situados en nuestra Ciudad.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- SLIDE 7: IPSI en lugar de IVA (The Calculator Slide) -->
+        <!-- SLIDE 7: IPSI en lugar de IVA -->
         <section class="slide" id="slide-7" data-slide-title="IPSI vs IVA">
             <div class="slide-content">
                 <h2 class="section-title">IPSI en lugar de IVA</h2>
-                <p class="section-subtitle">El factor clave de competitividad en la comercialización de servicios
-                    digitales y tecnológicos.</p>
+                <p class="section-subtitle">El factor clave de competitividad en la comercialización de servicios digitales y tecnológicos.</p>
 
                 <div class="split-layout">
                     <div class="ipsi-explanation bg-glass-card">
                         <h3>Ceuta está excluida del IVA</h3>
-                        <p>En lugar del IVA peninsular del 21%, Ceuta aplica el <strong>IPSI</strong> (Impuesto sobre la
-                            Producción, los Servicios y la Importación).</p>
+                        <p>En su lugar, como imposición indirecta se aplica el IPSI (Impuesto sobre la Producción, los Servicios y la Importación) cuyo tipo se encuentra entre el 0.5 % al 10 %, siendo el 4 % el tipo general frente al 21 % del IVA nacional.</p>
 
                         <div class="rate-comparison">
                             <div class="rate-box pen-rate">
@@ -2601,22 +2629,18 @@
                             <div class="rate-arrow"><i data-lucide="arrow-right-left"></i></div>
                             <div class="rate-box ceuta-rate">
                                 <span class="rate-lbl">IPSI Ceuta</span>
-                                <span class="rate-val">0,5% - 4%</span>
+                                <span class="rate-val">0,5% - 10%</span>
                             </div>
                         </div>
 
                         <p class="ipsi-note">
-                            * Para empresas de servicios de base tecnológica, telecomunicaciones y comercio electrónico,
-                            se aplican tipos hiper-reducidos de hasta el <strong>0,5%</strong>, permitiendo vender
-                            servicios con un coste fiscal indirecto ínfimo.
+                            * Para empresas de servicios de base tecnológica, telecomunicaciones y comercio electrónico, se aplican tipos hiper-reducidos del <strong>0.5%</strong>.
                         </p>
                     </div>
 
                     <div class="tax-calculator bg-glass-card highlight-glow">
-                        <h3><i data-lucide="calculator" class="accent-text"></i> Calculadora de Ahorro en Impuestos
-                            Indirectos</h3>
-                        <p class="calc-sub">Introduce la facturación anual estimada para comparar costes por IVA frente
-                            a IPSI tecnológico.</p>
+                        <h3><i data-lucide="calculator" class="accent-text"></i> Calculadora de Ahorro en Impuestos Indirectos</h3>
+                        <p class="calc-sub">Introduce la facturación anual estimada para comparar costes por IVA frente a IPSI tecnológico.</p>
 
                         <div class="input-group">
                             <label for="calc-revenue">Facturación Anual de Servicios (€):</label>
@@ -2653,19 +2677,133 @@
                         <div class="saving-bar-container">
                             <div class="saving-bar" id="saving-bar-indicator" style="width: 97.6%;"></div>
                         </div>
-                        <span class="bar-lbl">Ceuta reduce la carga impositiva en un <span
-                                id="saving-pct">97.6%</span></span>
+                        <span class="bar-lbl">Ceuta reduce la carga impositiva en un <span id="saving-pct">97.6%</span></span>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- SLIDE 8: Ventajas para Residentes (Talento) -->
-        <section class="slide" id="slide-8" data-slide-title="Residentes y Talento">
+        <!-- SLIDE 8: IPSI Reducido al 0,5% -->
+        <section class="slide" id="slide-8" data-slide-title="IPSI Reducido">
             <div class="slide-content">
-                <h2 class="section-title">Ventajas Extraordinarias para Residentes</h2>
-                <p class="section-subtitle">El incentivo directo al salario neto: la clave definitiva para la atracción
-                    de perfiles senior y directivos.</p>
+                <h2 class="section-title">IPSI Reducido al 0,5%</h2>
+                <p class="section-subtitle">Medidas para activar el crecimiento del Sector Tecnológico en Ceuta: IPSI 0,5% las prestaciones de servicios que, entre otros, a continuación se detallan:</p>
+
+                <div class="features-grid">
+                    <div class="feature-card animate-card">
+                        <div class="card-header-row">
+                            <div class="card-icon-wrapper">
+                                <i data-lucide="megaphone"></i>
+                            </div>
+                            <h3>Publicidad y Marketing</h3>
+                        </div>
+                        <p>Servicios de publicidad, campañas de marketing digital, posicionamiento SEO/SEM, relaciones públicas, patrocinio de eventos y consultoría comercial y de comunicación orientada a mercados exteriores.</p>
+                    </div>
+                    <div class="feature-card animate-card">
+                        <div class="card-header-row">
+                            <div class="card-icon-wrapper">
+                                <i data-lucide="phone-call"></i>
+                            </div>
+                            <h3>Atención al Cliente</h3>
+                        </div>
+                        <p>Centros de atención telefónica (call centers), plataformas de soporte técnico especializado, asistencia postventa y servicios remotos de atención a usuarios y clientes.</p>
+                    </div>
+                    <div class="feature-card animate-card">
+                        <div class="card-header-row">
+                            <div class="card-icon-wrapper">
+                                <i data-lucide="globe"></i>
+                            </div>
+                            <h3>Servicios Electrónicos</h3>
+                        </div>
+                        <p>Hosting y desarrollo web, mantenimiento correctivo y evolutivo de software a distancia, servicios de computación en la nube (SaaS/Cloud) y administración de sistemas TI.</p>
+                    </div>
+                    <div class="feature-card animate-card">
+                        <div class="card-header-row">
+                            <div class="card-icon-wrapper">
+                                <i data-lucide="database"></i>
+                            </div>
+                            <h3>Suministro Digital</h3>
+                        </div>
+                        <p>Acceso o descarga en línea de imágenes, texto, música, películas y bases de datos; software y publicaciones electrónicas; y plataformas de juego en línea (azar o de dinero).</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 9: Localización IPSI -->
+        <section class="slide" id="slide-9" data-slide-title="Localización IPSI">
+            <div class="slide-content">
+                <h2 class="section-title">Lugar de realización de la prestación de servicios a efectos del IPSI</h2>
+                <p class="section-subtitle">Normativa coordinada y asimilada a la Ley del IVA estatal para aportar máxima seguridad jurídica.</p>
+
+                <div class="is-deep-dive">
+                    <div class="is-card bg-glass-card">
+                        <div class="card-badge"><i data-lucide="refresh-cw"></i> Homogeneización</div>
+                        <h3>Remisión a la Ley del IVA</h3>
+                        <p>Otra de las peculiaridades es que la Ley 8/1991, para determinar diversos apartados del impuesto realiza una remisión a la Ley del IVA, lo que aporta una homogeneización del tributo.</p>
+                        <p style="font-size: 0.9rem; color: var(--text-secondary);">En particular, el lugar de realización del hecho imponible y sus exenciones...</p>
+                    </div>
+
+                    <div class="is-card bg-glass-card">
+                        <div class="card-badge"><i data-lucide="file-text"></i> Art. 70.dos IVA</div>
+                        <h3>Art. 70.dos de la Ley del IVA</h3>
+                        <p>Se considerarán prestados en el territorio de aplicación del Impuesto los servicios enumerados que no se entiendan realizados en la Comunidad, Islas Canarias, Ceuta o Melilla, pero su utilización o explotación efectivas se realicen en dicho territorio:</p>
+                        <ul class="styled-list" style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.4;">
+                            <li>1.º Los enunciados en el apartado dos del artículo 69, cuyo destinatario no tenga la consideración de empresario o profesional.</li>
+                            <li>2.º Los de arrendamiento de medios de transporte.</li>
+                        </ul>
+                    </div>
+
+                    <div class="is-card bg-glass-card">
+                        <div class="card-badge"><i data-lucide="check-square"></i> Sectores Impactados</div>
+                        <h3>Impacto Directo</h3>
+                        <p>La redacción actual, propuesta por la Ciudad de Ceuta, tiene especial impacto en las empresas de diversos sectores que operan desde la Ciudad, entre los que podemos resaltar los servicios de marketing, publicidad, distribución, dropshipping, agencias de viaje…</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 10: Ejemplos IPSI -->
+        <section class="slide" id="slide-10" data-slide-title="Ejemplos IPSI">
+            <div class="slide-content">
+                <h2 class="section-title">Casos Prácticos de IPSI y Sociedades</h2>
+                <p class="section-subtitle">Cómo se aplican las ventajas fiscales en operativas comerciales reales desde Ceuta.</p>
+
+                <div class="talent-split">
+                    <div class="bg-glass-card highlight-glow" style="display: flex; flex-direction: column; gap: 1rem;">
+                        <div class="card-badge" style="background: rgba(220, 54, 104, 0.12); color: var(--accent); border-color: rgba(220, 54, 104, 0.3);"><i data-lucide="package"></i> Distribución & Dropshipping</div>
+                        <h3>Empresa Distribuidora (Dropshipping)</h3>
+                        <p style="font-size: 0.95rem; color: var(--text-secondary);">Ejemplo de una empresa distribuidora que realiza su actividad desde Ceuta centrándonos en sus gastos y facturas:</p>
+                        <ul class="styled-list" style="font-size: 0.85rem; color: var(--text-secondary); margin-left: 1rem; line-height: 1.4;">
+                            <li>Los servicios que recibe de terceros (publicidad entre otros), estarán sujetos, con carácter general al IPSI.</li>
+                            <li>Los artículos serán entregados directamente por la productora al consumidor final sin pasar por Ceuta.</li>
+                            <li>Su Impuesto de Sociedades gozará del 50 % de beneficio.</li>
+                        </ul>
+                        <div class="divider" style="margin: 0.5rem 0;"></div>
+                        <p style="font-size: 0.82rem; color: var(--text-secondary); line-height: 1.4;">
+                            <strong>Informe de la DGT de 12 de diciembre de 2023:</strong> Concluye que las entidades que pretenden desarrollar la actividad de comercio electrónico mediante establecimiento o sucursal situado en Ceuta con medios materiales y humanos, gozarán del derecho a aplicar la bonificación del Art. 33 de la LIS (50% de bonificación en IS) respecto de las rentas obtenidas a través de él, independientemente de que sus clientes se encuentren o no en territorio ceutí.
+                        </p>
+                    </div>
+
+                    <div class="bg-glass-card highlight-glow" style="display: flex; flex-direction: column; gap: 1rem;">
+                        <div class="card-badge" style="background: rgba(169, 0, 201, 0.12); color: var(--accent-gold); border-color: rgba(169, 0, 201, 0.3);"><i data-lucide="tv"></i> Empresa de Marketing</div>
+                        <h3>Servicios de Marketing y Publicidad</h3>
+                        <p style="font-size: 0.95rem; color: var(--text-secondary);">En este supuesto lleva a cabo una campaña en TV nacional:</p>
+                        <ul class="styled-list" style="font-size: 0.85rem; color: var(--text-secondary); margin-left: 1rem; line-height: 1.4;">
+                            <li>La empresa de TV nacional contratada le facturará **sin IVA y sin IPSI**, debiendo la empresa ceutí autofacturarse IPSI (inversión sujeto pasivo). **Diferencia de ahorro de 20.5 %**.</li>
+                            <li>También gozaría del **50 % en el Impuesto sobre Sociedades (IS)**.</li>
+                            <li>Los accionistas de la entidad, **sin ser residentes**, aplicarán a la cantidad proveniente de la empresa ceutí el **60 % de bonificación en el IRPF**.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 11: Residentes y Talento -->
+        <section class="slide" id="slide-11" data-slide-title="Residentes y Talento">
+            <div class="slide-content">
+                <h2 class="section-title">BONIFICACIÓN DEL 60 % EN EL IRPF</h2>
+                <p class="section-subtitle">El incentivo definitivo para captar, fidelizar y consolidar talento y perfiles clave.</p>
 
                 <div class="talent-split">
                     <div class="salary-comparison-card bg-glass-card">
@@ -2684,27 +2822,30 @@
                             <div class="salary-bar-item">
                                 <span class="location-lbl">Ceuta (60% Bonificación)</span>
                                 <div class="bar-visual">
-                                    <div class="segment net highlight" style="width: 90%;" title="Neto: ~45.000€">Neto
-                                        ~90%</div>
+                                    <div class="segment net highlight" style="width: 90%;" title="Neto: ~45.000€">Neto ~90%</div>
                                     <div class="segment tax" style="width: 10%;" title="IRPF: ~5.000€">IRPF ~10%</div>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="benefit-tag"><i data-lucide="plus-circle"></i> Aumento inmediato del salario neto
-                            disponible para el trabajador.</div>
+                        <div class="benefit-tag"><i data-lucide="plus-circle"></i> Aumento inmediato del salario neto disponible para el trabajador.</div>
                     </div>
 
                     <div class="local-taxes-card bg-glass-card">
                         <h3>Deducción del 60% en el IRPF</h3>
-                        <p>Los residentes en Ceuta disfrutan de una <strong>bonificación estatal directa del 60% en la
-                                cuota íntegra del IRPF</strong> para rentas obtenidas localmente, lo cual reduce
-                            drásticamente las retenciones fiscales de la nómina.</p>
+                        <p style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 0.6rem;">
+                            <strong>Residentes:</strong> Los contribuyentes que tengan su residencia habitual y efectiva en Ceuta se deducirán el 60 por ciento de la parte de la suma de las cuotas íntegras estatal y autonómica que proporcionalmente corresponda a las rentas computadas para la determinación de las bases liquidables que hubieran sido obtenidas en Ceuta.
+                        </p>
+                        <p style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 0.6rem;">
+                            <strong>No Residentes:</strong> Los contribuyentes que no tengan su residencia habitual y efectiva en Ceuta, se deducirán el 60 por ciento de la parte de la suma de las cuotas íntegras estatal y autonómica que proporcionalmente corresponda a las rentas computadas para la determinación de las bases liquidables positivas que hubieran sido obtenidas en Ceuta.
+                        </p>
 
-                        <div class="divider"></div>
+                        <div class="divider" style="margin: 0.6rem 0;"></div>
 
                         <h3>50% de Bonificación en Impuestos Locales</h3>
-                        <p>Los impuestos de ámbito municipal se reducen a la mitad de forma indefinida:</p>
+                        <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 0.5rem;">
+                            Art. 159 RDL 2/2004 Las cuotas tributarias correspondientes a los impuestos municipales regulados en esta ley serán objeto de una bonificación del 50 por ciento:
+                        </p>
                         <div class="local-taxes-grid">
                             <div class="tax-tag"><span>IBI</span><span class="val">-50%</span></div>
                             <div class="tax-tag"><span>IVTM (Rodaje)</span><span class="val">-50%</span></div>
@@ -2717,12 +2858,11 @@
             </div>
         </section>
 
-        <!-- SLIDE 9: Ecosistema Tecnológico -->
-        <section class="slide" id="slide-9" data-slide-title="Ecosistema Tech">
+        <!-- SLIDE 12: Ecosistema Tech -->
+        <section class="slide" id="slide-12" data-slide-title="Ecosistema Tech">
             <div class="slide-content">
                 <h2 class="section-title">Ecosistema Tecnológico Moderno</h2>
-                <p class="section-subtitle">Infraestructura tecnológica, académica y empresarial unida para fomentar la
-                    innovación.</p>
+                <p class="section-subtitle">Infraestructura tecnológica, académica y empresarial unida para fomentar la innovación.</p>
 
                 <div class="ecosystem-grid">
                     <div class="eco-card bg-glass-card">
@@ -2730,8 +2870,7 @@
                             <i data-lucide="cpu"></i>
                             <h3>Fibra de Última Generación</h3>
                         </div>
-                        <p>Conectividad de banda ancha simétrica redundante de alta velocidad. Enlaces directos de fibra
-                            submarina que conectan Ceuta con la red troncal de la Península en milisegundos.</p>
+                        <p>Conectividad de banda ancha simétrica redundante de alta velocidad. Enlaces directos de fibra submarina que conectan Ceuta con la red troncal de la Península en milisegundos.</p>
                     </div>
 
                     <div class="eco-card bg-glass-card">
@@ -2739,9 +2878,7 @@
                             <i data-lucide="graduation-cap"></i>
                             <h3>Talento Universitario</h3>
                         </div>
-                        <p>Campus de la Universidad de Granada (UGR) en Ceuta, impartiendo el Grado en Ingeniería
-                            Informática y otras titulaciones, dotando de jóvenes profesionales altamente cualificados al
-                            mercado local.</p>
+                        <p>Campus de la Universidad de Granada (UGR) en Ceuta, impartiendo el Grado en Ingeniería Informática y otras titulaciones, dotando de jóvenes profesionales altamente cualificados al mercado local. Cátedra de IA en el campus UGR de Ceuta y Campus de la UNED en Ceuta.</p>
                     </div>
 
                     <div class="eco-card bg-glass-card">
@@ -2749,9 +2886,7 @@
                             <i data-lucide="rocket"></i>
                             <h3>El Ángulo & Ceuta Open Future</h3>
                         </div>
-                        <p>Un centro de aceleración e innovación tecnológica desarrollado en colaboración con
-                            Telefónica. Un catalizador para el emprendimiento, la formación en IT y el crecimiento de
-                            startups digitales.</p>
+                        <p>Un centro de aceleración e innovación tecnológica desarrollado en colaboración con Telefónica. Un catalizador para el emprendimiento, la formación en IT y el crecimiento de startups digitales.</p>
                     </div>
 
                     <div class="eco-card bg-glass-card">
@@ -2759,89 +2894,77 @@
                             <i data-lucide="network"></i>
                             <h3>Polo Digital y Málaga TechPark</h3>
                         </div>
-                        <p>Colaboraciones y convenios activos con el Polo de Contenidos Digitales de Málaga y Málaga
-                            TechPark (PTA). Sinergias directas para formar parte del eje tecnológico del sur de Europa.
-                        </p>
+                        <p>Colaboraciones y convenios activos con el Polo de Contenidos Digitales de Málaga y Málaga TechPark (PTA). Sinergias directas para formar parte del eje tecnológico del sur de Europa.</p>
                     </div>
 
                     <div class="eco-card bg-glass-card full-width-card">
                         <div class="eco-header">
                             <i data-lucide="database"></i>
-                            <h3>Futuro Data Center local</h3>
+                            <h3>Data Center local de última generación</h3>
                         </div>
-                        <p>Estrategia municipal orientada al desarrollo e implantación de infraestructuras críticas de
-                            procesamiento de datos con incentivos fiscales para el alojamiento en la ciudad.</p>
+                        <p>Estrategia municipal orientada al desarrollo e implantación de infraestructuras críticas de procesamiento de datos con incentivos fiscales para el alojamiento en la ciudad.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- SLIDE 10: Sectores con Potencial -->
-        <section class="slide" id="slide-10" data-slide-title="Sectores Clave">
+        <!-- SLIDE 13: Sectores Clave -->
+        <section class="slide" id="slide-13" data-slide-title="Sectores Clave">
             <div class="slide-content">
                 <h2 class="section-title">Sectores de Alto Crecimiento</h2>
-                <p class="section-subtitle">Ceuta es el entorno óptimo para actividades comerciales y de servicios
-                    globales.</p>
+                <p class="section-subtitle">Ceuta es el entorno óptimo para actividades comerciales y de servicios globales.</p>
 
                 <div class="sectors-container">
                     <div class="sector-bubble-card bg-glass-card">
                         <div class="bubble-icon"><i data-lucide="code-2"></i></div>
                         <h3>Desarrollo de Software</h3>
-                        <p>Factorías de software, empresas de ciberseguridad, desarrollo de videojuegos y sistemas cloud
-                            de alto rendimiento.</p>
+                        <p>Factorías de software, empresas de ciberseguridad, desarrollo de videojuegos y sistemas cloud de alto rendimiento.</p>
                     </div>
 
                     <div class="sector-bubble-card bg-glass-card">
                         <div class="bubble-icon"><i data-lucide="shopping-cart"></i></div>
                         <h3>E-Commerce</h3>
-                        <p>Plataformas de comercio digital que ubican en Ceuta sus centros de gestión administrativa,
-                            tecnológica y de atención al cliente.</p>
+                        <p>Plataformas de comercio digital que ubican en Ceuta sus centros de gestión administrativa, tecnológica y de atención al cliente.</p>
                     </div>
 
                     <div class="sector-bubble-card bg-glass-card">
                         <div class="bubble-icon"><i data-lucide="briefcase"></i></div>
                         <h3>Back Office corporativo</h3>
-                        <p>Centros corporativos de procesos administrativos, contabilidad, gestión de nóminas y
-                            operaciones internas de multinacionales.</p>
+                        <p>Centros corporativos de procesos administrativos, contabilidad, gestión de nóminas y operaciones internas de multinacionales.</p>
                     </div>
 
                     <div class="sector-bubble-card bg-glass-card">
                         <div class="bubble-icon"><i data-lucide="phone-call"></i></div>
                         <h3>Contact Centers de Valor</h3>
-                        <p>Servicios de atención al cliente especializados, soporte técnico avanzado y teleservicios con
-                            reducción masiva de costes de personal.</p>
+                        <p>Servicios de atención al cliente especializados, soporte técnico avanzado y teleservicios con reducción masiva de costes de personal.</p>
                     </div>
 
                     <div class="sector-bubble-card bg-glass-card">
                         <div class="bubble-icon"><i data-lucide="globe"></i></div>
                         <h3>Servicios Digitales</h3>
-                        <p>Marketing digital, agencias de SEO/SEM, consultorías informáticas y producción de contenidos
-                            multimedia.</p>
+                        <p>Marketing digital, agencias de SEO/SEM, consultorías informáticas y producción de contenidos multimedia.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- SLIDE 11: PROCESA -->
-        <section class="slide" id="slide-11" data-slide-title="PROCESA">
+        <!-- SLIDE 14: PROCESA -->
+        <section class="slide" id="slide-14" data-slide-title="PROCESA">
             <div class="slide-content">
-                <h2 class="section-title">PROCESA: Tu Aliado Público</h2>
-                <p class="section-subtitle">Sociedad municipal dedicada al fomento y desarrollo socioeconómico de Ceuta.
-                </p>
+                <h2 class="section-title">CIUDAD AUTÓNOMA DE CEUTA: Tu Aliado Público</h2>
+                <p class="section-subtitle">La Ciudad de Ceuta cuenta con la Sociedad municipal dedicada al fomento y desarrollo socioeconómico de Ceuta.</p>
 
                 <div class="procesa-layout bg-glass-card">
                     <div class="procesa-info">
                         <h3>Impulso y Acompañamiento a Empresas</h3>
-                        <p>PROCESA es la ventanilla única para el inversor en Ceuta, facilitando el aterrizaje de nuevas
-                            empresas mediante dos pilares fundamentales:</p>
+                        <p>PROCESA es la ventanilla única para el inversor en Ceuta, facilitando el aterrizaje de nuevas empresas mediante dos pilares fundamentales:</p>
 
                         <div class="procesa-pillars">
                             <div class="pillar">
                                 <div class="pillar-num">01</div>
                                 <div class="pillar-text">
                                     <h4>Ayudas Directas a la Inversión</h4>
-                                    <p>Subvenciones a fondo perdido para la creación de empresas y adquisición de
-                                        activos fijos de hasta un 30% del presupuesto de inversión inicial.</p>
+                                    <p>Subvenciones a fondo perdido para la creación de empresas y adquisición de activos fijos de hasta un 30% del presupuesto de inversión inicial.</p>
                                 </div>
                             </div>
 
@@ -2849,8 +2972,7 @@
                                 <div class="pillar-num">02</div>
                                 <div class="pillar-text">
                                     <h4>Formación a la Carta</h4>
-                                    <p>Financiación de planes formativos personalizados y adaptados específicamente a
-                                        los perfiles que tu empresa requiera contratar para iniciar actividad.</p>
+                                    <p>Financiación de planes formativos personalizados y adaptados específicamente a los perfiles que tu empresa requiera contratar para iniciar actividad.</p>
                                 </div>
                             </div>
                         </div>
@@ -2859,20 +2981,18 @@
             </div>
         </section>
 
-        <!-- SLIDE 12: Conclusión -->
-        <section class="slide" id="slide-12" data-slide-title="Conclusión">
+        <!-- SLIDE 15: Conclusión -->
+        <section class="slide" id="slide-15" data-slide-title="Conclusión">
             <div class="slide-content">
                 <h2 class="section-title">Conclusión: Una Ventana de Oportunidad</h2>
-                <p class="section-subtitle">La sinergia de factores clave que convierten a Ceuta en el destino de
-                    inversión óptimo.</p>
+                <p class="section-subtitle">La sinergia de factores clave que convierten a Ceuta en el destino de inversión óptimo.</p>
 
                 <div class="conclusion-grid">
                     <div class="conclusion-item bg-glass-card">
                         <span class="check-icon"><i data-lucide="check"></i></span>
                         <div>
                             <h3>Rentabilidad y Ahorro Fiscal</h3>
-                            <p>Reducción del IS al 12.5%, exención del IVA mediante IPSI del 0.5% al 4%, y bonificación
-                                del 50% en Seguridad Social patronal.</p>
+                            <p>Reducción del IS al 12.5%, exención del IVA mediante IPSI del 0.5% al 4%, y bonificación del 50% en Seguridad Social.</p>
                         </div>
                     </div>
 
@@ -2880,8 +3000,7 @@
                         <span class="check-icon"><i data-lucide="check"></i></span>
                         <div>
                             <h3>Atracción de Talento</h3>
-                            <p>Deducción del 60% en el IRPF para residentes, lo cual maximiza el salario neto y fideliza
-                                a los perfiles clave.</p>
+                            <p>Deducción del 60% en el IRPF para residentes, lo cual maximiza el salario neto y fideliza a los perfiles clave.</p>
                         </div>
                     </div>
 
@@ -2889,8 +3008,7 @@
                         <span class="check-icon"><i data-lucide="check"></i></span>
                         <div>
                             <h3>Soporte Institucional</h3>
-                            <p>Apoyo total de PROCESA en ayudas directas a la inversión física y formación laboral a la
-                                carta.</p>
+                            <p>Apoyo total de la Ciudad en ayudas directas a la inversión física y formación laboral a la carta.</p>
                         </div>
                     </div>
 
@@ -2898,24 +3016,20 @@
                         <span class="check-icon"><i data-lucide="check"></i></span>
                         <div>
                             <h3>Calidad de Vida Insuperable</h3>
-                            <p>Clima mediterráneo, playas y naturaleza a 15 minutos, dentro del marco normativo y de
-                                seguridad jurídica de España y la Unión Europea.</p>
+                            <p>Clima mediterráneo, playas y naturaleza a 15 minutos, dentro del marco normativo y de seguridad jurídica de España y la Unión Europea.</p>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- SLIDE 13: Gracias / Contacto -->
-        <section class="slide" id="slide-13" data-slide-title="Contacto">
+        <!-- SLIDE 16: Gracias / Contacto -->
+        <section class="slide" id="slide-16" data-slide-title="Contacto">
             <div class="slide-content contact-slide">
                 <h2 class="thanks-title animate-element">Ceuta sorprende y atrae.</h2>
-                <div class="contact-text-box bg-glass-card animate-element"
-                    style="margin-top: 1.5rem; max-width: 750px;">
-                    <h3 class="thanks-subtitle" style="margin-top: 0;">Os esperamos</h3>
-                    <p class="thanks-desc" style="margin-bottom: 0;">Inicia tu proyecto tecnológico en Ceuta hoy mismo.
-                        Ponte en contacto con
-                        nosotros para asesorarte de forma personalizada y sin compromiso.</p>
+                <div class="contact-text-box bg-glass-card animate-element" style="margin-top: 1.5rem; max-width: 750px;">
+                    <h3 class="thanks-subtitle" style="margin-top: 0;">Os esperamos.</h3>
+                    <p class="thanks-desc" style="margin-bottom: 0;">Inicia tu proyecto en Ceuta hoy mismo. Ponte en contacto con nosotros para asesorarte de forma personalizada y sin compromiso.</p>
                 </div>
             </div>
         </section>
@@ -2932,7 +3046,7 @@
                 <i data-lucide="chevron-left"></i>
             </button>
             <div class="slide-counter">
-                <span id="current-slide-num">1</span> / <span id="total-slides-num">13</span>
+                <span id="current-slide-num">1</span> / <span id="total-slides-num">16</span>
             </div>
             <button class="control-btn" id="btn-next-slide" title="Siguiente Slide (Flecha Derecha o Espacio)">
                 <i data-lucide="chevron-right"></i>
